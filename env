@@ -1,0 +1,4 @@
+REACT_APP_BACKEND_URL=http://127.0.0.1:8000/api
+REACT_APP_IMAGE_URL=http://127.0.0.1:8000/public/
+REACT_APP_CLOSING_YOUTUBE_URL=https://www.youtube.com/embed/kOKYl_56LJo?autoplay=1
+REACT_APP_LIVECHAT_URL=https://www.youtube.com/live_chat?v=kOKYl_56LJo&embed_domain=bigforcefestival.com

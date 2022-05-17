@@ -1,13 +1,122 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "fonarto";
+  src: url(../src/assets/font/fonarto.regular.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "poppins";
+  src: url(../src/assets/font/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "lato-bold";
+  src: url(../src/assets/font/Lato-Bold.ttf);
+}
+
+@font-face {
+  font-family: "lato-light";
+  src: url(../src/assets/font/Lato-Light.ttf);
+}
+
+@font-face {
+  font-family: "lato-thin";
+  src: url(../src/assets/font/Lato-Thin.ttf);
+}
+
+@font-face {
+  font-family: "lato-regular";
+  src: url(../src/assets/font/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: "lato-black";
+  src: url(../src/assets/font/Lato-Black.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "lato";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "fonarto";
+}
+
+.text-heading-1 {
+  @apply text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl;
+}
+
+.text-heading-2 {
+  @apply text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl;
+}
+
+.text-heading-3 {
+  @apply text-lg sm:text-xl lg:text-2xl;
+}
+
+.text-paragraph-heading {
+  @apply text-lg sm:text-xl lg:text-2xl;
+}
+
+.text-paragraph-1 {
+  @apply text-sm sm:text-base lg:text-lg 2xl:text-xl font-medium;
+}
+
+.text-paragraph-2 {
+  @apply text-xs sm:text-sm lg:text-base 2xl:text-lg;
+}
+
+.text-button {
+  @apply text-base sm:text-lg lg:text-xl 2xl:text-2xl;
+}
+
+.margin-page {
+  @apply w-5/6 lg:w-4/5 mx-auto;
+}
+
+.size-logo {
+  @apply w-10 h-10 sm:w-12 sm:h-12 lg:w-20 lg:h-20;
+}
+
+.tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media only screen and (min-width: 1280px) {
+    /* Dealing with 2 orphan items */
+    .item:last-child:nth-child(3n - 1) {
+      grid-column-end: -2;
+    }
+    
+    .item:nth-last-child(2):nth-child(3n + 1) {
+      grid-column-end: 4;
+    }
+    
+    /* Dealing with single orphan */
+    .item:last-child:nth-child(3n - 2) {
+      grid-column-end: 5;
+    }
 }
