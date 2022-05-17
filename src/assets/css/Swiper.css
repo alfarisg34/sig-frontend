@@ -1,0 +1,28 @@
+.swiper-button-next {
+    background-image: url(../icon/right-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    margin-right: 10%;
+}
+
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-button-prev {
+    background-image: url(../icon/left-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    margin-left: 10%;
+}
+
+.swiper-button-prev::after {
+    display: none;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
