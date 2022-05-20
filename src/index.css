@@ -45,6 +45,8 @@ body {
   font-family: "lato";
 }
 
+#map { height: 180px; }
+
 h1,
 h2,
 h3,
