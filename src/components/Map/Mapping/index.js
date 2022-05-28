@@ -27,8 +27,8 @@ class MyMap extends Component {
 
 	onEachProvince = (province, layer) => {
 		const totalBudaya = province.properties.totalBudaya;
-		let high = 102.6571429;
-		let low = 65.97813491;
+		let high = 80.92470134;
+		let low = 29.3694163;
 
 		if (totalBudaya >= high) {
 			layer.options.fillColor = "green";
