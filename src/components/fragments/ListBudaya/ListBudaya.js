@@ -34,7 +34,7 @@ export default function ListBudaya(props) {
   return (
     <section className={styles.root}>
       <div className={styles.header}>
-        <p>Provinsi {name}</p>
+        <p>{name}</p>
         <FontAwesomeIcon className={styles.close} icon={faClose} onClick={onClose} />
       </div>
       <div className={styles.list}>

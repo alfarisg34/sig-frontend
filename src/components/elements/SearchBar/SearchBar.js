@@ -21,6 +21,7 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.root}>
+    {/* // <div className="w3-sidebar w3-bar-block"> */}
       <div>Peta Persebaran Seni Tradisional Indonesia</div>
       <Search
         inputProps={inputProps}
@@ -33,7 +34,8 @@ export default function SearchBar(props) {
             resultData.map((i, idx) => (
               <div onClick={() => onClickResult(i.id)} key={idx}>
                 <span><FontAwesomeIcon icon={faLocationDot} /></span>
-                <p>{`${i.nama_budaya}, ${i.Provinsi.nama_provinsi}`}</p>
+                <p>{`${i.nama_budaya}`}</p>
+                <div>{/* <p>{`${i.nama_budaya}, /*${i.Provinsi.nama_provinsi}`}</p>*/}</div>
               </div>
             ))
           ) : (
