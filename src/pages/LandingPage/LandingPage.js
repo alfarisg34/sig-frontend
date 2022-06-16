@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router';
 import { routes } from '../../configs/routes';
 import { useSearchParams } from 'react-router-dom';
 // import { provincePinData } from "../../data/Data";
+import Navbar from '../../components/elements/Navbar';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ export default function LandingPage() {
       setFilteredResult(() => {
         let result = [];
         result = dataBudaya.filter((budaya) => {
+          console.log(budaya)
           return budaya.nama_budaya?.toLowerCase().includes(keyword.toLowerCase())
         })
         return result
@@ -76,6 +78,8 @@ export default function LandingPage() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div onClick={() => setOpenResult(false)}>
       <div className={styles.content}>
         <SearchBar
@@ -94,5 +98,6 @@ export default function LandingPage() {
         handleClick={handleClickLocation}
       />
     </div>
+    </>
   )
 }
