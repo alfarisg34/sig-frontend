@@ -2,6 +2,9 @@ export const routes = {
   LANDING_PAGE: () => {
     return `/`;
   },
+  MAPE_PAGE: () => {
+    return `/map`;
+  },
   LIST_BUDAYA: (idProvinsi) => {
     return `?id=${idProvinsi}`
   },
