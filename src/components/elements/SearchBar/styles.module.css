@@ -6,7 +6,7 @@
 
 .root>div:first-child {
   padding: 1rem;
-  background-color: var(--mid-grey);
+  background-color: var(--blue);
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--white);

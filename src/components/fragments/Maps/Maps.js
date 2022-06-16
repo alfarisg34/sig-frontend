@@ -22,8 +22,8 @@ export default function Maps(props) {
   };
 
   const onEachProvince = (province, layer) => {
-		let high = 80.92470134;
-		let low = 29.3694163;
+		let high = 66.74699796;
+		let low = 43.54711969;
     const totalBudaya = province.properties.totalBudaya;
 
 		if (totalBudaya >= high) {
