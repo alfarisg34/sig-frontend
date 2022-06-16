@@ -13,15 +13,17 @@
 }
 
 :root {
-  --black: #00000000;
+  --black: #222831;
   --black-default: #434A42;
-  --grey: #626C66;
+  --grey: #393E46;
   --secondary-grey: #6B8E84;
   --mid-grey: #918B76;
   --sage: #ACA885;
   --wheat: #E1CA96;
   --white: #FFFFFF;
   --hover-grey: #E4E4E4;
+  --blue: #00ADB5;
+  --red: #E84545;
 
   font-size: calc(100vw * 16 / 1440);
 }
