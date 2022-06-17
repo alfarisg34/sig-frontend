@@ -11,7 +11,7 @@ export const routes = {
   DETAIL_BUDAYA: (idBudaya) => {
     return `?idBudaya=${idBudaya}`
   },
-  ADMIN: () => {
-    return `/admin`;
+  LOGIN_PAGE: () => {
+    return `/admin/login`;
   },
 }
