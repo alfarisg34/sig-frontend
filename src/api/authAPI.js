@@ -1,11 +1,11 @@
-import Api from './api';
+import API from './API';
 
 const authAPI = {
   login(data) {
-    return Api.post('/auth/login', data);
+    return API.post('/auth/login', data);
   },
   logout() {
-    return Api.post('/auth/logout');
+    return API.post('/auth/logout');
   }
 };
 
