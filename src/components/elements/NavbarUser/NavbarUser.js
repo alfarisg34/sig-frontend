@@ -1,7 +1,7 @@
 import React from 'react';
 // import styles from './styles.module.css';
 
-export default function Navbar(props) {
+export default function NavbarUser(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">

@@ -1,12 +1,12 @@
 import React from 'react';
 // import styles from './styles.module.css';
-import Navbar from '../../components/elements/Navbar';
+import NavbarUser from '../../components/elements/NavbarUser';
 import Footer from '../../components/elements/Footer';
 
 export default function MapPage() {
   return (
     <>
-    <Navbar/>
+    <NavbarUser/>
     <div className="container">
       <div className="row align-items-center">
         <div className="col-md">

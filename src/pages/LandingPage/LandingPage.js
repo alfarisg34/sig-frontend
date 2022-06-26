@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router';
 import { routes } from '../../configs/routes';
 import { useSearchParams } from 'react-router-dom';
 // import { provincePinData } from "../../data/Data";
-import Navbar from '../../components/elements/Navbar';
+import NavbarUser from '../../components/elements/NavbarUser';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ export default function LandingPage() {
 
   return (
     <>
-    <Navbar/>
+    <NavbarUser/>
     <div onClick={() => setOpenResult(false)}>
       <div className={styles.content}>
         <SearchBar
