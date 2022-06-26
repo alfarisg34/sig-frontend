@@ -27,17 +27,17 @@ export default function Maps(props) {
     const totalBudaya = province.properties.totalBudaya;
 
 		if (totalBudaya >= high) {
-			layer.options.fillColor = "green";
+			layer.options.fillColor = "#238823";
 		} else if (totalBudaya <= low) {
-			layer.options.fillColor = "red";
+			layer.options.fillColor = "#D2222D";
 		} else {
-			layer.options.fillColor = "yellow";
+			layer.options.fillColor = "#FFBF00";
 		}
   };
 
   return (
     <div className={styles.root}>
-      <MapContainer center={[-0.789275, 113.921326]} zoom={6} zoomControl={false}>
+      <MapContainer center={[-0.789275, 117.921326]} zoom={5} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
