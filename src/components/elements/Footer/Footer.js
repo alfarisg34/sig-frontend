@@ -6,8 +6,7 @@ export default function Footer(props) {
 	<div className="fixed-bottom">
 		<footer className="bg-light text-center text-lg-start">
 			<div className="text-center p-3 bg-primary text-light">
-				© 2020 Copyright:
-				<a className="text-light" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+				<a className="text-light" href="/login">Login as admin?</a>
 			</div>
 		</footer>
 	</div>
