@@ -12,6 +12,9 @@ export const routes = {
     return `?idBudaya=${idBudaya}`
   },
   LOGIN_PAGE: () => {
-    return `/admin/login`;
+    return `/login`;
+  },
+  DASHBOARD: () => {
+    return `/admin/dashboard`;
   },
 }
