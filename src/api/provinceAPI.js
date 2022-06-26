@@ -1,8 +1,8 @@
-import Api from "./api";
+import API from "./API";
 
 const provinceAPI = {
   getProvinces() {
-    return Api.get('/provinsi/reads');
+    return API.get('/provinsi/reads');
   }
 };
 

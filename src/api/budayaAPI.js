@@ -1,14 +1,14 @@
-import Api from "./api";
+import API from "./API";
 
 const budayaAPI = {
   getAllBudaya() {
-    return Api.get('/kebudayaan/reads');
+    return API.get('/kebudayaan/reads');
   },
   getListBudaya(provinceId) {
-    return Api.get(`/kebudayaan/readsbyprovince/${provinceId}`);
+    return API.get(`/kebudayaan/readsbyprovince/${provinceId}`);
   },
   getDetailBudaya(idBudaya) {
-    return Api.get(`/kebudayaan/read/${idBudaya}`)
+    return API.get(`/kebudayaan/read/${idBudaya}`)
   }
 };
 
