@@ -1,0 +1,50 @@
+.root>.image{
+  width: 20rem;
+}
+.root>.image>img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.root>.field {
+  display: grid;
+  grid-template-columns: 20.5rem 10.5rem auto;
+  gap: 2.5rem;
+}
+
+.root>.field>div:not(:last-child)>div:first-child {
+  margin-bottom: 1.35rem;
+}
+
+.root>.submitFooter {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.root>.submitFooter>button {
+  width: 10rem;
+}
+
+.root>.submitFooter>button:first-child {
+  background-color: var(--mid-grey) !important;
+  color: var(--white) !important;
+}
+
+.root>.submitFooter>button:last-child {
+  border: 1px solid var(--mid-grey) !important;
+}
+
+.root>div:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.textDesc>textarea {
+  height: 10.2rem;
+}
+
+.alert {
+  width: fit-content;
+}
