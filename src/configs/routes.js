@@ -21,6 +21,6 @@ export const routes = {
     return `/admin/addBudaya`;
   },
   EDIT_BUDAYA: (id) => {
-    return `/admin?editBudaya=true&id=${id}`
+    return `/admin/dashboard?editBudaya=true&id=${id}`
   }
 }

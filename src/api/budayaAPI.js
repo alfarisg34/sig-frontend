@@ -19,6 +19,9 @@ const budayaAPI = {
   deleteBudaya(idBudaya) {
     return API.delete(`/kebudayaan/delete/${idBudaya}`)
   },
+  editBudaya(idBudaya, data) {
+    return API.put(`/kebudayaan/update/${idBudaya}`, data)
+  }
 };
 
 export default budayaAPI;

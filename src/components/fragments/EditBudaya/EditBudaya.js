@@ -19,7 +19,7 @@ export default function EditBudaya({ data }) {
     formData.append('nama_budaya', data.nama_budaya);
     formData.append('image', data.image ? data.image[0] : undefined);
     formData.append('tahun', data.tahun);
-    formData.append('desc', data.desc);
+    formData.append('deskripsi', data.deskripsi);
     // formData.append('video', data.video || '')    
     formData.append('ProvinsiId', parseInt(data.idProvinsi));
 
@@ -28,11 +28,12 @@ export default function EditBudaya({ data }) {
       const res = await budayaAPI.editBudaya(id, formData);
       if (res.data.success) {
         setLoading(false);
-        navigate(routes.ADMIN());
+        navigate(routes.DASHBOARD());
         setAlert(false);
       }
     } catch (error) {
       setLoading(false);
+      console.log(error)
       setMessage(error.response.data.message)
       setAlert(true);
     }
@@ -45,12 +46,12 @@ export default function EditBudaya({ data }) {
     jenis_budaya: data?.JenisBudayaId,
     idProvinsi: data?.ProvinsiId,
     registNum: data?.registNum,
-    desc: data?.desc,
+    deskripsi: data?.deskripsi,
   };
 
   return (
     <div className={style.root}>
-      <p>Edit Budaya Pengetahuan Tradisional</p>
+      <p>Edit Budaya Seni Tradisional</p>
       {alert && (
         <Alert message={message}/>
       )}
