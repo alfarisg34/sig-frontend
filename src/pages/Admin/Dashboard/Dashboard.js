@@ -1,18 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Outlet, Navigate ,navigate} from "react-router-dom";
-// import styles from './styles.module.css';
-// import Navbar from '../../components/elements/Navbar';
-import Sidebar from '../../../components/elements/Sidebar';
-import API from "../../../api/API";
-import { AdminContext } from "../../../context/AdminContext";
+import style from "./styles.module.css";
+import { useNavigate } from "react-router";
+import budayaAPI from "../../../api/budayaAPI";
 import authAPI from "../../../api/authAPI";
+import { routes } from "../../../configs/routes";
+import { AdminContext } from "../../../context/AdminContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Table from "../../../components/fragments/Table";
+import ModalDelete from "../../../components/fragments/ModalDelete/ModalDelete";
+import Pagination from "../../../components/elements/Pagination";
+import EditBudaya from "../../../components/fragments/EditBudaya";
+import { useSearchParams } from "react-router-dom";
 
-export default function LoginPage({children}) {
-  // const [isOpen, setIsOpen] = useState(true);
-	const [isLogged, setIsLogged] = useState(true);
+export default function Dashboard({children}) {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const edit = searchParams.get("editBudaya");
   const { admin, setAdmin } = useContext(AdminContext);
+  const [openDelete, setOpenDelete] = useState(false);
+  const [deletedData, setDeletedData] = useState(null);
 
   const logout = async () => {
 		try {
@@ -20,64 +27,173 @@ export default function LoginPage({children}) {
 			console.log(res);
 			if (res.status === 200) {
 				setAdmin(null);
-				return <Navigate to="/login" />
+				return <useNavigate to="/login" />
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
+  const [pageData, setPageData] = useState({
+    isLoading: false,
+    rowData: [],
+  });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [navigation, setNavigation] = useState({
+    hasNext: false,
+    hasPrev: false,
+    totalPages: 0,
+    totalRows: 0,
+  });
+  const [editData, setEditData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  API.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        if (
-          error &&
-          error.response &&
-          error.response.status === 401 &&
-          error.response.data.message === "admin not found"
-        ) {
-          setIsLogged(false);
-          console.log("satu");
-          console.log(isLogged);
-          return Promise.reject();
-        }
-        console.log("2")
-        return Promise.reject(error);
-      } 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const res = await budayaAPI.getBudayaPage(10, currentPage);
+      if (res.data.sucess) {
+        setPageData({
+          isLoading: false,
+          rowData: res.data.data,
+          size: res.data.cursor.size,
+        });
+        setNavigation({
+          hasNext: res.data.cursor.hasNext,
+          hasPrev: res.data.cursor.hasPrev,
+          totalPages: res.data.cursor.totalPages,
+          totalRows: res.data.cursor.totalRows,
+        });
+        setLoading(false);
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    setPageData({
+      isLoading: true,
+      rowData: [],
+    });
+    fetchData();
+  }, [currentPage]);
+
+  const handleClick = (data) => {
+    setEditData(data);
+    navigate(routes.EDIT_BUDAYA(data.id));
+  };
+
+  const handleDelete = (id) => {
+    setDeletedData(id);
+    setOpenDelete(true);
+  };
+
+  const editColumn = (e) => {
+    return (
+      <div className={style.clickable} onClick={() => handleClick(e)}>
+        <FontAwesomeIcon icon={faEdit} />
+      </div>
     );
+  };
+
+  const deleteColumn = (e) => {
+    return (
+      <div className={style.clickable} onClick={() => handleDelete(e)}>
+        <FontAwesomeIcon icon={faTrash} />
+      </div>
+    );
+  };
+
+  const deleteFunction = async () => {
+    try {
+      const res = await budayaAPI.deleteBudaya(deletedData);
+      if (res.data.success) {
+        setOpenDelete(false);
+        fetchData();
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const rowNumber = (row) => {
+    let num = row + 1;
+    if (currentPage > 1) {
+      num = row + 1 + (currentPage - 1) * 10;
+    }
+
+    return <div>{num}</div>;
+  };
+
+  const COLUMNS = [
+    {
+      Header: "No.",
+      id: "row",
+      Cell: ({ row }) => rowNumber(row.index),
+    },
+    {
+      Header: "Nama Budaya",
+      accessor: "nama_budaya",
+    },
+    {
+      Header: "Provinsi",
+      accessor: "ProvinsiModel.nama_provinsi",
+    },
+    {
+      Header: "Tahun",
+      accessor: "tahun",
+    },
+    {
+      Header: "No. Registrasi",
+      accessor: "penetapanNum",
+    },
+    {
+      Header: "Edit",
+      accessor: editColumn,
+    },
+    {
+      Header: "Delete",
+      accessor: ({ id }) => deleteColumn(id),
+    },
+  ];
+
+  if (edit) {
+    return <EditBudaya data={editData} />;
+  }
     
   return (
     <>
-    <button
-			type="button"
-			className="btn btn-primary"
-			onClick={logout}
-		> logout</button>
-    <div className="wrapper d-flex align-items-stretch">
-      <nav id="sidebar" className="active">
-        <div className="custom-menu">
-          <button type="button" id="sidebarCollapse" className="btn btn-primary">
-            <i className="fa fa-bars"></i>
-            <span className="sr-only">Toggle Menu</span>
-          </button>
+      <section className={style.root}>
+      <div className={style.header}>
+        <div>
+          <FontAwesomeIcon icon={faUser} /> Hi, {admin?.username}!
         </div>
-      <h1><a href="index.html" className="logo">Project Name</a></h1>
-      <ul className="list-unstyled components mb-5">
-        <li className="active"><a href="#"><span className="fa fa-home mr-3"></span> Homepage</a></li>
-        <li><a href="#"><span className="fa fa-user mr-3"></span> Dashboard</a></li>
-        <li><a href="#"><span className="fa fa-sticky-note mr-3"></span> Friends</a></li>
-        <li><a href="#"><span className="fa fa-sticky-note mr-3"></span> Subcription</a></li>
-        <li><a href="#"><span className="fa fa-paper-plane mr-3"></span> Settings</a></li>
-        <li><a href="#"><span className="fa fa-paper-plane mr-3"></span> Information</a></li>
-      </ul>
-      </nav>
-
-      <div id="content" className="p-4 p-md-5 pt-5">
-        <h2 className="mb-4">Sidebar #04</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-    </div>
+      <div className={style.content}>
+        <div>
+          <p>Manajemen Kebudayaan Seni Tradisional</p>
+        </div>
+        <Table
+          columnTable={COLUMNS}
+          dataTable={pageData.rowData}
+          isLoading={loading}
+        />
+        <Pagination
+          currentPage={currentPage}
+          hasNext={navigation.hasNext}
+          hasPrev={navigation.hasPrev}
+          setCurrentPage={setCurrentPage}
+          totalPages={navigation.totalPages}
+          show={true}
+        />
+        <ModalDelete
+          show={openDelete}
+          onClose={() => setOpenDelete(false)}
+          deleteClick={deleteFunction}
+        />
+      </div>
+    </section>
     </>
   )
 }

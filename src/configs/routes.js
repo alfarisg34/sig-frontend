@@ -17,4 +17,10 @@ export const routes = {
   DASHBOARD: () => {
     return `/admin/dashboard`;
   },
+  ADD_BUDAYA: () => {
+    return `/admin/addBudaya`;
+  },
+  EDIT_BUDAYA: (id) => {
+    return `/admin?editBudaya=true&id=${id}`
+  }
 }

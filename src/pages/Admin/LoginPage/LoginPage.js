@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext,useState } from "react";
-import { Link,Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { ModalContext } from "../../../context/ModalContext";
 import { Modals } from "../../../components/constant/Modals/index";
-// import login from "../../services/Auth";
 import authAPI from "../../../api/authAPI";
 import { AdminContext } from "../../../context/AdminContext";
 import Alert from '../../../components/elements/Alert';
@@ -54,15 +53,22 @@ export default function LoginPage() {
   return (
 	<>
 	<section className="vh-100" style={{'backgroundColor': '#508bfc'}}>
-		<div className="">
-			<a href="/map">
-				<FontAwesomeIcon icon={faArrowLeft} className="bg-dark" />
-			</a>
+		<div className="d-flex p-4">
+			<div className="row justify-content-start">
+				<div className="col">
+					<a href="/map">
+						<FontAwesomeIcon icon={faArrowLeft} className="text-dark" />
+					</a>
+				</div>
+				<div className="col fw-bold">
+					<p>Kembali</p>
+				</div>
+			</div>	
 		</div>
 		{alert && (
           <Alert className={styles.alert} message={message} />
         )}
-		<div className="container py-5 h-100">
+		<div className="container py-5 h-95">
 			<div className="row d-flex justify-content-center align-items-center h-100">
 				<div className="col-12 col-md-8 col-lg-6 col-xl-5">
 					<div className="card shadow-2-strong" style={{'borderRadius': '1rem'}}>

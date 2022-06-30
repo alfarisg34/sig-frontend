@@ -22,6 +22,7 @@ export default function DetailBudaya() {
   useEffect(() => {
     fetchDetailBudaya();
   });
+  console.log(detail)
 
   return (
     <section className={styles.root}>
@@ -51,7 +52,7 @@ export default function DetailBudaya() {
         </div>
         <div>
           <p>Provinsi</p>
-          <p>: {detail.Provinsi?.nama_provinsi || empty}</p>
+          <p>: {detail.ProvinsiModel?.nama_provinsi || empty}</p>
         </div>
         <p>{detail?.deskripsi || empty}</p>
       </div>

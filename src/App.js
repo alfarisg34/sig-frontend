@@ -5,11 +5,13 @@ import { routes } from './configs/routes';
 import { AdminContext } from "./context/AdminContext";
 import { ModalContext } from './context/ModalContext';
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import PageBase from "./components/layout/PageBase";
 
 const LandingPage = React.lazy(() => import('./pages/LandingPage'));
 const LoginPage = React.lazy(() => import('./pages/Admin/LoginPage'));
 const MapPage = React.lazy(() => import('./pages/MapPage'));
 const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
+const AddBudaya = React.lazy(() => import("./pages/Admin/AddBudaya"));
 
 function App() {
   const [admin, setAdmin] = useLocalStorage("admin");
@@ -47,14 +49,16 @@ function App() {
               <Route element={<LoginPage />} exact path={routes.LOGIN_PAGE()} />
               <Route element={<MapPage />} exact path={routes.MAPE_PAGE()} />
               <Route
-                path="/admin/dashboard"
                 element={
                   <ProtectedRoute user={admin}>
-                    <Dashboard />
+                    <PageBase />
                   </ProtectedRoute>
                 }
+                exact path=""
               >
-            </Route>
+                <Route element={<Dashboard />} exact path={routes.DASHBOARD()}/>
+                <Route element={<AddBudaya />} exact path={routes.ADD_BUDAYA()} />
+              </Route>
             </Routes>
           </Router>
         </AdminContext.Provider>

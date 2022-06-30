@@ -9,7 +9,13 @@ const budayaAPI = {
   },
   getDetailBudaya(idBudaya) {
     return API.get(`/kebudayaan/read/${idBudaya}`)
-  }
+  },
+  getBudayaPage(limit, page) {
+    return API.get(`/kebudayaan/all?limit=${limit}&page=${page}`, {withCredentials: true});
+  },
+  addData(data) {
+    return API.post(`/kebudayaan/create`, data)
+  },
 };
 
 export default budayaAPI;
