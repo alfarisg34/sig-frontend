@@ -6,7 +6,7 @@ import authAPI from "../../../api/authAPI";
 import { routes } from "../../../configs/routes";
 import { AdminContext } from "../../../context/AdminContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEdit, faTrash,faSignOut, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import Table from "../../../components/fragments/Table";
 import ModalDelete from "../../../components/fragments/ModalDelete/ModalDelete";
 import Pagination from "../../../components/elements/Pagination";
@@ -21,18 +21,6 @@ export default function Dashboard({children}) {
   const [openDelete, setOpenDelete] = useState(false);
   const [deletedData, setDeletedData] = useState(null);
 
-  const logout = async () => {
-		try {
-			const res = await authAPI.logout();
-			console.log(res);
-			if (res.status === 200) {
-				setAdmin(null);
-				return <useNavigate to="/login" />
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
   const [pageData, setPageData] = useState({
     isLoading: false,
     rowData: [],
@@ -87,6 +75,18 @@ export default function Dashboard({children}) {
   const handleDelete = (id) => {
     setDeletedData(id);
     setOpenDelete(true);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const res = await authAPI.logout();
+      if (res.data.success) {
+        setAdmin(null);
+        navigate(routes.LOGIN_PAGE());
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const editColumn = (e) => {
@@ -167,8 +167,11 @@ export default function Dashboard({children}) {
       <section className={style.root}>
       <div className={style.header}>
         <div>
-          <FontAwesomeIcon icon={faUser} /> Hi, {admin?.username}!
+          <FontAwesomeIcon icon={faUserAlt} /> Hi, {admin?.username}!
         </div>
+        <button className="btn btn-danger"onClick={handleLogout} >
+          <FontAwesomeIcon icon={faSignOut}/>
+        </button>
       </div>
       <div className={style.content}>
         <div>

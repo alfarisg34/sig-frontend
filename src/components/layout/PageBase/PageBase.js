@@ -50,10 +50,10 @@ export default function PageBase() {
               <NavItem data={i} key={idx} pathname={pathname}/>
             ))}
           </nav>
-          <div className={style.signOut} onClick={handleLogout}>
+          {/* <div className={style.signOut} onClick={handleLogout}>
             <FontAwesomeIcon icon={faSignOut}/>
             <p>Sign Out</p>
-          </div>
+          </div> */}
         </section>
       </aside>
       <main className={style.content}><Outlet/></main>
