@@ -12,13 +12,13 @@ export default function NavbarUser(props) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/map">Home</a>
+              <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">Map</a>
+              <a className="nav-link" href="/map">Map</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/map">About</a>
+              <a className="nav-link" href="/">About</a>
             </li>
           </ul>
         </div>
