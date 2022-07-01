@@ -6,7 +6,7 @@ import authAPI from "../../../api/authAPI";
 import { routes } from "../../../configs/routes";
 import { AdminContext } from "../../../context/AdminContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEdit, faTrash,faSignOut, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash,faSignOut, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import Table from "../../../components/fragments/Table";
 import ModalDelete from "../../../components/fragments/ModalDelete/ModalDelete";
 import Pagination from "../../../components/elements/Pagination";
