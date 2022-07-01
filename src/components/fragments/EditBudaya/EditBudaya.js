@@ -17,11 +17,11 @@ export default function EditBudaya({ data }) {
   const submitForm = async (data) => {
     const formData = new FormData();
     formData.append('nama_budaya', data.nama_budaya);
-    formData.append('image', data.image ? data.image[0] : undefined);
+    formData.append('image', data.image ? data.image : undefined);
     formData.append('tahun', data.tahun);
     formData.append('deskripsi', data.deskripsi);
     // formData.append('video', data.video || '')    
-    formData.append('ProvinsiId', parseInt(data.idProvinsi));
+    formData.append('ProvinsiModelId', parseInt(data.idProvinsi));
 
     try {
       setLoading(true);
@@ -44,10 +44,12 @@ export default function EditBudaya({ data }) {
     tahun: data?.tahun,
     image: data?.image,    
     jenis_budaya: data?.JenisBudayaId,
-    idProvinsi: data?.ProvinsiId,
+    idProvinsi: data?.ProvinsiModelId,
     registNum: data?.registNum,
     deskripsi: data?.deskripsi,
   };
+  console.log("editbudaya")
+  console.log(data?.ProvinsiModelId)
 
   return (
     <div className={style.root}>
