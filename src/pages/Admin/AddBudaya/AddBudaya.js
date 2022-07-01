@@ -19,15 +19,15 @@ export default function AddBudaya() {
     formData.append('tahun', data.tahun);
     formData.append('deskripsi', data.deskripsi);
     // formData.append('video', data.video || '');
-    formData.append('JenisKebudayaanModelId', parseInt(data.JenisKebudayaanModelId || '4'));
-    formData.append('ProvinsiModelId', parseInt(data.ProvinsiModelId || '1'));
+    formData.append('JenisKebudayaanModelId', parseInt(data.jenis_budaya || '4'));
+    formData.append('ProvinsiModelId', parseInt(data.idProvinsi || '1'));
 
     try {
       setLoading(true);
       const res = await budayaAPI.addData(formData);
       if (res.data.success) {
         setLoading(false);
-        navigate(routes.ADMIN());
+        navigate(routes.DASHBOARD());
         setAlert(false);
       }
     } catch (error) {
