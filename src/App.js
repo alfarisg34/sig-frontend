@@ -1,4 +1,4 @@
-import React, { useMemo,useState } from 'react';
+import React, { useMemo,useState,Suspense } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import { routes } from './configs/routes';
@@ -43,24 +43,26 @@ function App() {
     <div>
       <ModalContext.Provider value={modalProviderValue}>
         <AdminContext.Provider value={adminProviderValue}>
-          <Router>
-            <Routes>
-              <Route element={<LandingPage />} exact path={routes.LANDING_PAGE()} />
-              <Route element={<LoginPage />} exact path={routes.LOGIN_PAGE()} />
-              <Route element={<MapPage />} exact path={routes.MAPE_PAGE()} />
-              <Route
-                element={
-                  <ProtectedRoute user={admin}>
-                    <PageBase />
-                  </ProtectedRoute>
-                }
-                exact path=""
-              >
-                <Route element={<Dashboard />} exact path={routes.DASHBOARD()}/>
-                <Route element={<AddBudaya />} exact path={routes.ADD_BUDAYA()} />
-              </Route>
-            </Routes>
-          </Router>
+          <Suspense fallback={<div>Loading..</div>}>
+            <Router>
+              <Routes>
+                <Route element={<LandingPage />} exact path={routes.LANDING_PAGE()} />
+                <Route element={<LoginPage />} exact path={routes.LOGIN_PAGE()} />
+                <Route element={<MapPage />} exact path={routes.MAPE_PAGE()} />
+                <Route
+                  element={
+                    <ProtectedRoute user={admin}>
+                      <PageBase />
+                    </ProtectedRoute>
+                  }
+                  exact path=""
+                >
+                  <Route element={<Dashboard />} exact path={routes.DASHBOARD()}/>
+                  <Route element={<AddBudaya />} exact path={routes.ADD_BUDAYA()} />
+                </Route>
+              </Routes>
+            </Router>
+          </Suspense>
         </AdminContext.Provider>
       </ModalContext.Provider>
     </div>
