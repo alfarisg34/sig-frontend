@@ -21,6 +21,7 @@ export default function AddBudaya() {
     // formData.append('video', data.video || '');
     formData.append('JenisKebudayaanModelId', parseInt(data.jenis_budaya || '4'));
     formData.append('ProvinsiModelId', parseInt(data.idProvinsi || '1'));
+    // formData.append('penetapanNum', parseInt(data.penetapanNum || '000000000'));
 
     try {
       setLoading(true);

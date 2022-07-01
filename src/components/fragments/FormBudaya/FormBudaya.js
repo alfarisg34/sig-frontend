@@ -110,6 +110,13 @@ export default function FormBudaya({
             displayValue={"nama_provinsi"}
             options={provinsi}
           />
+           {/* <Text
+            label="No. Registrasi"
+            name="penetapanNum"
+            inputProps={inputProps[4]}
+            error={errors?.penetapanNum?.message}
+            register={register}
+          /> */}
         </div>
         <div>
           <Text
