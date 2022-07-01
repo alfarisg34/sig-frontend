@@ -29,12 +29,12 @@
 }
 
 .root>.submitFooter>button:first-child {
-  background-color: var(--mid-grey) !important;
+  background-color: var(--blue) !important;
   color: var(--white) !important;
 }
 
 .root>.submitFooter>button:last-child {
-  border: 1px solid var(--mid-grey) !important;
+  border: 1px solid var(--black) !important;
 }
 
 .root>div:not(:last-child) {

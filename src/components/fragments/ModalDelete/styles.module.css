@@ -19,10 +19,10 @@
 }
 
 .root>div>button:first-child {
-  border: 1px solid var(--mid-grey) !important;
+  border: 1px solid var(--black) !important;
 }
 
 .root>div>button:last-child {
-  background-color: var(--mid-grey) !important;
+  background-color: var(--blue) !important;
   color: var(--white) !important;
 }

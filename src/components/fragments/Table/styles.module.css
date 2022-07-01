@@ -5,7 +5,7 @@
 }
 
 .root>thead {
-  background-color: var(--mid-grey);
+  background-color: var(--blue);
   border: none;
   color: var(--white);
 }

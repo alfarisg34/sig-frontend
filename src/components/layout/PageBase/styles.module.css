@@ -1,5 +1,5 @@
 .aside {
-  background-color: var(--mid-grey);
+  background-color: var(--blue);
   height: 100vh;
   left: 0;
   position: fixed;
@@ -61,7 +61,7 @@
 
 .isActive{
   background-color: var(--white);
-  color: var(--mid-grey) !important;
+  color: var(--black) !important;
   border-radius: 5px;
 }
 

@@ -53,7 +53,7 @@
 
 .title>div:last-child {
   padding: 0.5rem;
-  background-color: var(--mid-grey);
+  background-color: var(--black);
   color: var(--white);
   font-weight: 700;
   font-size: 1rem;
