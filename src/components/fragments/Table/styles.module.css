@@ -20,6 +20,7 @@
 .root>tbody>tr>td:not(:nth-child(2),:nth-child(3)) {
   text-align: center;
 }
+.root>tbody>tr:nth-child(even) {background: #CCC}
 
 .root>thead>tr>th:nth-child(2) {
   width: 23rem;

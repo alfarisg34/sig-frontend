@@ -15,12 +15,13 @@
 }
 
 .content>div:first-child {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
 .content>div:first-child>p {
+  padding-left: 17.5rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
