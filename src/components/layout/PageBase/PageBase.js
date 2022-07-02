@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router';
 import style from './styles.module.css';
-import logo from '../../../assets/logo-kemendikbud.png';
+// import logo from '../../../assets/logo-kemendikbud.png';
 import { routes } from '../../../configs/routes';
 import { faListCheck, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
@@ -21,10 +21,12 @@ export default function PageBase() {
         <section>
           <div className={style.header}>
             <div>
-              <img alt="logo-kemendikbud" src={logo}/>
+              {/* <img alt="logo-kemendikbud" src={logo}/> */}
             </div>
             <div>
-              <p>WARISAN BUDAYA TAKBENDA</p>
+              {/* <p>DASHBOARD ADMIN</p> */}
+              <p>DASHBOARD ADMIN </p>
+              <br></br>
               <p>SENI TRADISIONAL INDONESIA</p>
             </div>
           </div>
@@ -55,7 +57,7 @@ function NavItem(props){
   return (
     <Link to={data.to} >
       <div className={isActive && style.isActive}>
-        <FontAwesomeIcon icon={data.icon}/>
+        {/* <FontAwesomeIcon icon={data.icon}/> */}
         <p>{data.name}</p>
       </div>
     </Link>

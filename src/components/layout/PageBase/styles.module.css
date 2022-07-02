@@ -15,7 +15,7 @@
 }
 
 .header{
-  display: flex;
+  /* display: flex; */
   gap: 0.5rem;
   align-items: center;
   margin-bottom: 2.5rem;
@@ -36,13 +36,13 @@
 }
 
 .header > div:last-child > p:first-child {
-  font-weight: 400;
-  font-size: 0.75rem;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 .header > div:last-child > p:last-child {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .navItem>a{
@@ -51,12 +51,16 @@
 }
 
 .navItem>a>div{
-  display: flex;
+  /* display: flex; */
   gap: 1rem;
-  color: var(--white);
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 5px;
   align-items: center;
   padding: 1rem;
   margin-bottom: 1rem;
+  padding-left: 3.75rem;
+  padding-top: 2rem;
 }
 
 .isActive{
