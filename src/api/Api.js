@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8000/api/";
+const baseURL = "https://seni-tradisional-be.herokuapp.com/api/";
 
 const API = axios.create({
   baseURL: baseURL,
