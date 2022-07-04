@@ -16,7 +16,7 @@ export default function PageBase() {
   ];
 
   return (
-    <>
+    <div>
       <aside className={style.aside}>
         <section>
           <div className={style.header}>
@@ -42,7 +42,7 @@ export default function PageBase() {
         </section>
       </aside>
       <main className={style.content}><Outlet/></main>
-    </>
+    </div>
   )
 }
 
