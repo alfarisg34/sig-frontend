@@ -55,7 +55,7 @@ function App() {
                       <PageBase />
                     </ProtectedRoute>
                   }
-                  exact path={routes.DASHBOARD()}
+                  exact path=""
                 >
                   <Route element={<Dashboard />} exact path={routes.DASHBOARD()}/>
                   <Route element={<AddBudaya />} exact path={routes.ADD_BUDAYA()} />
