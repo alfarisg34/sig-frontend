@@ -1,6 +1,6 @@
 import React, { useMemo,useState,Suspense } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet} from 'react-router-dom';
 import { routes } from './configs/routes';
 import { AdminContext } from "./context/AdminContext";
 import { ModalContext } from './context/ModalContext';
@@ -20,9 +20,9 @@ function App() {
   const ProtectedRoute = ({ user, children }) => {
     console.log(user)
 		if (user === null) {
-			return <Navigate to="/login" replace />;
+			return <Navigate to={routes.LOGIN()} replace />;
 		}
-		return children;
+		return children ? children : <Outlet />;
 	};
 
   const adminProviderValue = useMemo(
@@ -55,7 +55,7 @@ function App() {
                       <PageBase />
                     </ProtectedRoute>
                   }
-                  exact path=""
+                  exact path={routes.DASHBOARD()}
                 >
                   <Route element={<Dashboard />} exact path={routes.DASHBOARD()}/>
                   <Route element={<AddBudaya />} exact path={routes.ADD_BUDAYA()} />
