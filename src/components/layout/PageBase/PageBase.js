@@ -56,7 +56,7 @@ function NavItem(props){
 
   return (
     <Link to={data.to} >
-      <div className={isActive && style.isActive}>
+      <div className={isActive ? style.isActive : ''}>
         {/* <FontAwesomeIcon icon={data.icon}/> */}
         <p>{data.name}</p>
       </div>
