@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
@@ -17,8 +17,10 @@ export default function Select(props) {
     selected
   } = props;
 
-  const classes = [styles.root, className].filter(Boolean).join(' ');
+  const[value,setValue]=useState(0)
 
+  const classes = [styles.root, className].filter(Boolean).join(' ');
+  console.log(selected)
   return (
     <div className={classes}>
       {label && (
@@ -30,12 +32,14 @@ export default function Select(props) {
         {...register(name)}
         {...inputProps}
         disabled={disabled}
+        // value={value}
       >
         {options.length > 0 && options.map((i, idx) => (
           <option
             key={idx}
             value={i.id}
-            selected={selected === i.id}
+            // selected={selected === i.id}
+            // onClick={()=>setValue(i.id)}
           >
             {i[displayValue]}
           </option>

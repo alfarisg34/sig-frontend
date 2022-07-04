@@ -73,7 +73,7 @@ export default function FormBudaya({
   useEffect(() => {
     fetchDataProvinsi();
   }, []);
-  
+  console.log(preloadValues?.idProvinsi)
   return (
     <form onSubmit={handleSubmit(handleSubmitForm)} className={style.root}>
       <div className={style.image}>
