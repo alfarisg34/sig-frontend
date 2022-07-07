@@ -77,7 +77,30 @@ export default function FormBudaya({
   return (
     <form onSubmit={handleSubmit(handleSubmitForm)} className={style.root}>
       <div className={style.image}>
-        <Text
+        {/* <Text
+          label="Masukkan Gambar"
+          name="image"
+          inputProps={inputPropsFile}
+          register={register}
+          error={errors?.image?.message}
+        />
+        <img
+          alt="choose"
+          src={imageURL || preloadValues?.image || imgDefault}
+          onError={(e) => { e.target.onerror = null; e.target.src = imgDefault }}
+        />
+        <p>Maksimal File 2MB</p> */}
+      </div>
+      <div className={style.field}>
+        <div>
+          <Text
+            label="Nama Budaya"
+            name="nama_budaya"
+            inputProps={inputProps[0]}
+            error={errors?.nama_budaya?.message}
+            register={register}
+          />
+           <Text
           label="Masukkan Gambar"
           name="image"
           inputProps={inputPropsFile}
@@ -90,16 +113,6 @@ export default function FormBudaya({
           onError={(e) => { e.target.onerror = null; e.target.src = imgDefault }}
         />
         <p>Maksimal File 2MB</p>
-      </div>
-      <div className={style.field}>
-        <div>
-          <Text
-            label="Nama Budaya"
-            name="nama_budaya"
-            inputProps={inputProps[0]}
-            error={errors?.nama_budaya?.message}
-            register={register}
-          />
           <Select
             label="Provinsi"
             name="idProvinsi"
@@ -117,8 +130,6 @@ export default function FormBudaya({
             error={errors?.penetapanNum?.message}
             register={register}
           /> */}
-        </div>
-        <div>
           <Text
             label="Tahun"
             name="tahun"
@@ -139,9 +150,7 @@ export default function FormBudaya({
               { id: 2, nama_jenis: "Penetapan" },
             ]}
           />
-        </div>
-        <div>
-          <TextArea
+           <TextArea
             className={style.textDesc}
             label="Deskripsi"
             name="deskripsi"
@@ -149,6 +158,38 @@ export default function FormBudaya({
             error={errors?.desc?.message}
             register={register}
           />
+        </div>
+        <div>
+          {/* <Text
+            label="Tahun"
+            name="tahun"
+            inputProps={inputProps[1]}
+            error={errors?.tahun?.message}
+            register={register}
+          />
+          <Select
+            label="Jenis"
+            name="jenis_budaya"
+            inputProps={inputProps[2]}
+            error={errors?.jenis_budaya?.message}
+            register={register}
+            selected={preloadValues?.jenis_budaya}
+            displayValue={"nama_jenis"}
+            options={[
+              { id: 1, nama_jenis: "Pencatatan" },
+              { id: 2, nama_jenis: "Penetapan" },
+            ]}
+          /> */}
+        </div>
+        <div>
+          {/* <TextArea
+            className={style.textDesc}
+            label="Deskripsi"
+            name="deskripsi"
+            inputProps={inputProps[4]}
+            error={errors?.desc?.message}
+            register={register}
+          /> */}
         </div>
       </div>
       <div className={style.submitFooter}>

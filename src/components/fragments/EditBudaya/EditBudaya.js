@@ -29,6 +29,7 @@ export default function EditBudaya({ data }) {
       if (res.data.success) {
         setLoading(false);
         navigate(routes.DASHBOARD());
+        navigate(0)
         setAlert(false);
       }
     } catch (error) {

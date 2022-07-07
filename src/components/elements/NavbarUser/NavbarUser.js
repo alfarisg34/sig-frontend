@@ -5,7 +5,7 @@ export default function NavbarUser(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/map">Navbar</a>
+        <a className="navbar-brand" href="/map">Petaku</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -17,9 +17,9 @@ export default function NavbarUser(props) {
             <li className="nav-item">
               <a className="nav-link" href="/map">Map</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/">About</a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
