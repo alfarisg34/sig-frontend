@@ -22,9 +22,11 @@ export default function Maps(props) {
   };
 
   const onEachProvince = (province, layer) => {
-		let high = 66.74699796;
-		let low = 43.54711969;
+		let high = 9.277924773719569;
+		let low = 4.664932369137573;
     const totalBudaya = province.properties.totalBudaya;
+
+    console.log(totalBudaya)
 
 		if (totalBudaya >= high) {
 			layer.options.fillColor = "#238823";

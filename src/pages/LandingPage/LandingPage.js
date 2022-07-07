@@ -12,6 +12,7 @@ import { routes } from '../../configs/routes';
 import { useSearchParams } from 'react-router-dom';
 // import { provincePinData } from "../../data/Data";
 import NavbarUser from '../../components/elements/NavbarUser';
+import MapsDesc from '../../components/fragments/MapsDesc/MapsDesc'
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -90,6 +91,8 @@ export default function LandingPage() {
           resultData={filteredResult}
         />
         {renderContent()}
+        {/* <MapsDesc high={dataCalc.high} low={dataCalc.low}/> */}
+        <MapsDesc/>
       </div>
       <Maps
         data={dataProvinsi}
