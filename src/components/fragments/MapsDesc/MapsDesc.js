@@ -12,19 +12,19 @@ export default function MapsDesc(props) {
 
   return (
     <div className={style.root}>
-      <div className={style.header}>Keterangan</div>
+      <div className={style.header}>LEGENDA</div>
       <div className={style.desc}>
         <div>
           <div className={style.high}/>
-          <p><span>≥ {roundedHigh || '...'}</span> Kebudayaan</p>  
+          <p><span>≥ {roundedHigh || '...'}</span> Budaya</p>  
         </div>
         <div>
           <div className={style.between}/>
-          <p><span>{roundedLow || '...'} - {roundedHigh || '...'}</span> Kebudayaan</p>  
+          <p><span>{roundedLow || '...'} - {roundedHigh || '...'}</span> Budaya</p>  
         </div>
         <div>
           <div className={style.low}/>
-          <p><span>≤ {roundedLow || '...'}</span> Kebudayaan</p>  
+          <p><span>≤ {roundedLow || '...'}</span> Budaya</p>  
         </div>
       </div>
     </div>

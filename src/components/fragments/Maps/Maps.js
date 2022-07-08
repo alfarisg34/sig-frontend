@@ -60,7 +60,7 @@ export default function Maps(props) {
           data={geoJson}
           onEachFeature={onEachProvince}
         />
-        <ZoomControl position='topright' />
+        <ZoomControl position='bottomright' />
       </MapContainer>
     </div>
   )
