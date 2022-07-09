@@ -15,7 +15,7 @@ export const formBudayaSchema = yup.object().shape({
     //     return value[0] && value[0]?.size <= 2*1024*1024;
     //   }
     // ),
-  nama_budaya: yup.string().required('Nama Kebudayaan Wajib diisi'),
+  nama_budaya: yup.string().trim().required('Nama Kebudayaan Wajib diisi'),
   tahun: yup.number().typeError('Tahun Belum Sesuai')
     .min(2010)
     .max(yearToday, 'Tahun melebihi tahun pendaftaran')
