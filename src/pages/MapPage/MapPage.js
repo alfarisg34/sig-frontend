@@ -14,7 +14,7 @@ export default function MapPage() {
           <h5>Media informasi pengenalan budaya di Indonesia. Hadirkan data dan visualisasi budaya.</h5>
         </div>
         <div className="col-md">
-          <img src='https://vemaps.com/uploads/img/large/id-06.jpg' className="img-fluid rounded float-end" alt="Peta Indonesia" />
+          <a href="/map"><img href="/map" src='https://vemaps.com/uploads/img/large/id-06.jpg' className="img-fluid rounded float-end" alt="Peta Indonesia" /></a>
         </div>
       </div>
     </div>
