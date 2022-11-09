@@ -22,15 +22,15 @@ export default function Maps(props) {
   };
 
   const onEachProvince = (province, layer) => {
-		let high = 9.277924773719569;
-		let low = 4.664932369137573;
+		let high = 86.08023282;
+		let low = 24.21388482;
     const totalBudaya = province.properties.totalBudaya;
 
     console.log(totalBudaya)
 
-		if (totalBudaya >= high) {
+		if (totalBudaya > high) {
 			layer.options.fillColor = "#238823";
-		} else if (totalBudaya <= low) {
+		} else if (totalBudaya < low) {
 			layer.options.fillColor = "#D2222D";
 		} else {
 			layer.options.fillColor = "#FFBF00";

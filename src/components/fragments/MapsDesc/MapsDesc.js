@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 export default function MapsDesc(props) {
   // const { high, low } = props;
-  let high = 9.277924773719569;
-	let low = 4.664932369137573;
+  let high = 86.08023282;
+	let low = 24.21388482;
 
   const roundedHigh = Math.round(high);
   const roundedLow = Math.round(low);
@@ -16,7 +16,7 @@ export default function MapsDesc(props) {
       <div className={style.desc}>
         <div>
           <div className={style.high}/>
-          <p><span>≥ {roundedHigh || '...'}</span> Budaya</p>  
+          <p><span> {'>'} {roundedHigh || '...'}</span> Budaya</p>  
         </div>
         <div>
           <div className={style.between}/>
@@ -24,7 +24,7 @@ export default function MapsDesc(props) {
         </div>
         <div>
           <div className={style.low}/>
-          <p><span>≤ {roundedLow || '...'}</span> Budaya</p>  
+          <p><span>{'<'} {roundedLow || '...'}</span> Budaya</p>  
         </div>
       </div>
     </div>
