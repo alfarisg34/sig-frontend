@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://seni-tradisional-be.herokuapp.com/api/";
+const baseURL = "seni-tradisional-be.up.railway.app";
 
 const API = axios.create({
   baseURL: baseURL,
